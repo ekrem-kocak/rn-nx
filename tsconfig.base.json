@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@rn-nx/core": ["libs/core/src/index.ts"],
-      "@rn-nx/shared": ["libs/shared/src/index.ts"]
+      "@rn-nx/shared": ["libs/shared/src/index.ts"],
+      "@rn-nx/store": ["libs/store/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
