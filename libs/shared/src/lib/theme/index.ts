@@ -24,7 +24,7 @@ export const typography = {
   h1: {
     fontSize: 24,
     lineHeight: 32,
-    fontWeight: '700',
+    fontWeight: "700",
   },
   body: {
     fontSize: 16,

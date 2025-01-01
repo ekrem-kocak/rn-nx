@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { register, RootState } from '@rn-nx/store';
 import { Input, Button, colors, typography } from '@rn-nx/shared';
 import { Text, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 interface RegisterForm {
   email: string;
@@ -18,15 +19,9 @@ interface RegisterForm {
   displayName: string;
 }
 
-const images = {
-  authBg: {
-    uri: 'https://img.freepik.com/free-vector/gradient-dynamic-blue-lines-background_23-2148995756.jpg',
-  },
-  logo: { uri: 'https://cdn-icons-png.flaticon.com/512/6244/6244710.png' },
-};
-
 export const RegisterScreen = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const { loading, error } = useSelector((state: RootState) => state.auth);
 
   const { control, handleSubmit } = useForm<RegisterForm>();
@@ -39,18 +34,13 @@ export const RegisterScreen = () => {
     <SafeAreaView style={styles.safeArea}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.container}
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
           <View style={styles.header}>
-            <Image source={images.logo} style={styles.logo} />
-            <Text style={styles.title}>Hoş Geldiniz</Text>
-            <Text style={styles.subtitle}>
-              Hesabınızı oluşturun ve todo'larınızı yönetmeye başlayın
-            </Text>
+            <Text style={styles.title}>Kayıt Ol</Text>
           </View>
 
           <View style={styles.form}>
@@ -121,8 +111,6 @@ export const RegisterScreen = () => {
               )}
             />
 
-            {error && <Text style={styles.error}>{error}</Text>}
-
             <Button
               title="Kayıt Ol"
               onPress={handleSubmit(onSubmit)}
@@ -139,7 +127,7 @@ export const RegisterScreen = () => {
                 title="Giriş Yap"
                 variant="outline"
                 size="small"
-                onPress={() => {}}
+                onPress={() => navigation.navigate('Login')}
                 style={styles.loginButton}
               />
             </View>
@@ -154,6 +142,7 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: colors.white,
+    justifyContent: 'center',
   },
   container: {
     flex: 1,
@@ -164,25 +153,15 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: 32,
-  },
-  logo: {
-    width: 80,
-    height: 80,
-    marginBottom: 24,
   },
   title: {
     ...typography.h1,
     color: colors.gray[900],
     marginBottom: 8,
   },
-  subtitle: {
-    ...typography.body,
-    color: colors.gray[600],
-    textAlign: 'center',
-  },
   form: {
     gap: 16,
+    marginTop: 24,
   },
   button: {
     marginTop: 8,

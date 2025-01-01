@@ -29,6 +29,14 @@ export const register = createAsyncThunk(
   }
 );
 
+export const login = createAsyncThunk(
+  'auth/login',
+  async ({ email, password }: { email: string; password: string }) => {
+    const user = await authService.login(email, password);
+    return user;
+  }
+);
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -51,6 +59,19 @@ const authSlice = createSlice({
         state.user = action.payload;
       })
       .addCase(register.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || 'Bir hata oluştu';
+      })
+      .addCase(login.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        console.warn(action)
+        state.loading = false;
+        state.user = action.payload;
+      })
+      .addCase(login.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || 'Bir hata oluştu';
       });
