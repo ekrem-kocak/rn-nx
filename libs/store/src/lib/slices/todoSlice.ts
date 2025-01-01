@@ -28,7 +28,6 @@ export const addTodo = createAsyncThunk(
       title,
       completed: false,
       userId,
-      createdAt: new Date(),
     });
     return todo;
   }

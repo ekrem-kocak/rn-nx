@@ -71,7 +71,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary[600],
   },
   todoText: {
-    ...typography.body,
+    fontSize: typography.body.fontSize,
+    lineHeight: typography.body.lineHeight,
+    fontFamily: typography.body.fontFamily,
     color: colors.gray[900],
     flex: 1,
   },

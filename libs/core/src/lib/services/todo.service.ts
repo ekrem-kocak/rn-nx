@@ -7,6 +7,7 @@ import {
   deleteDoc,
   doc,
   updateDoc,
+  Timestamp,
 } from 'firebase/firestore';
 import { db } from '../config/firebase.config';
 
@@ -15,21 +16,35 @@ export interface Todo {
   title: string;
   completed: boolean;
   userId: string;
-  createdAt: Date;
+  createdAt: string;
 }
 
 export const todoService = {
-  async addTodo(todo: Omit<Todo, 'id'>): Promise<Todo> {
-    const docRef = await addDoc(collection(db, 'todos'), todo);
-    return { ...todo, id: docRef.id };
+  async addTodo(todo: Omit<Todo, 'id' | 'createdAt'>): Promise<Todo> {
+    const timestamp = Timestamp.now();
+    const todoWithDate = {
+      ...todo,
+      createdAt: timestamp.toDate().toISOString(),
+    };
+    const docRef = await addDoc(collection(db, 'todos'), todoWithDate);
+    return { ...todoWithDate, id: docRef.id };
   },
 
   async getTodos(userId: string): Promise<Todo[]> {
     const q = query(collection(db, 'todos'), where('userId', '==', userId));
     const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map(
-      (doc) => ({ id: doc.id, ...doc.data() } as Todo)
-    );
+    return querySnapshot.docs.map((doc) => {
+      const data = doc.data();
+      const createdAt = data.createdAt instanceof Timestamp 
+        ? data.createdAt.toDate().toISOString()
+        : data.createdAt;
+      
+      return {
+        id: doc.id,
+        ...data,
+        createdAt,
+      } as Todo;
+    });
   },
 
   async updateTodo(id: string, data: Partial<Todo>): Promise<void> {
