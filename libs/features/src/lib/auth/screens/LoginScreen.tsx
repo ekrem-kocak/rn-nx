@@ -30,7 +30,6 @@ export const LoginScreen = () => {
     try {
       const resultAction = await dispatch(login(data));
 
-      console.error(resultAction);
       // unwrapResult veya fulfillWithValue kullanarak sonucu kontrol edebiliriz
       if (login.fulfilled.match(resultAction)) {
         // Login başarılı
