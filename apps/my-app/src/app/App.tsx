@@ -38,7 +38,7 @@ export const App = () => {
               testID="heading"
               role="heading"
             >
-              Welcome Todo 👋
+              Welcome MyApp 👋
             </Text>
           </View>
           <View style={styles.section}>
@@ -389,7 +389,7 @@ export const App = () => {
               <TouchableOpacity
                 style={styles.connectToCloudButton}
                 onPress={() => {
-                  Linking.openURL('https://cloud.nx.app/connect/tvQ7IDNXV9');
+                  Linking.openURL('');
                 }}
               >
                 <Text
@@ -453,7 +453,7 @@ export const App = () => {
                     styles.marginBottomMd,
                   ]}
                 >
-                  nx build Todo
+                  nx build MyApp
                 </Text>
                 <Text style={[styles.textXS, styles.monospace, styles.comment]}>
                   # Test
@@ -465,13 +465,13 @@ export const App = () => {
                     styles.marginBottomMd,
                   ]}
                 >
-                  nx test Todo
+                  nx test MyApp
                 </Text>
                 <Text style={[styles.textXS, styles.monospace, styles.comment]}>
                   # Lint
                 </Text>
                 <Text style={[styles.textXS, styles.monospace]}>
-                  nx lint Todo
+                  nx lint MyApp
                 </Text>
                 <Text style={[styles.textXS, styles.monospace, styles.comment]}>
                   # Run them together!
@@ -483,7 +483,7 @@ export const App = () => {
                     styles.marginBottomMd,
                   ]}
                 >
-                  nx run-many -p Todo -t build test lint
+                  nx run-many -p MyApp -t build test lint
                 </Text>
               </View>
 
@@ -508,7 +508,7 @@ export const App = () => {
               </View>
               <View style={[styles.codeBlock, styles.marginBottomLg]}>
                 <Text style={[styles.textXS, styles.monospace]}>
-                  nx show project Todo
+                  nx show project MyApp
                 </Text>
               </View>
               <View style={styles.listItem}>

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "todo:start": "npx nx run todo:start"
+    "my-app:start": "npx nx run my-app:start"
   },
   "private": true,
   "dependencies": {
