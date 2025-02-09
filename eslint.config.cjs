@@ -17,7 +17,7 @@ module.exports = [
     },
   },
   {
-    ignores: ['**/dist'],
+    ignores: ['**/dist', '**/*.d.ts'],
   },
   {
     files: ['**/*.ts', '**/*.tsx'],
