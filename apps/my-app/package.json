@@ -1,5 +1,5 @@
 {
-  "name": "todo",
+  "name": "my-app",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -12,6 +12,6 @@
     "react-native-web": "*"
   },
   "scripts": {
-    "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/todo"
+    "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/my-app"
   }
 }
