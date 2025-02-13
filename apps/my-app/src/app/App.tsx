@@ -1,7 +1,14 @@
-import { View } from 'react-native';
+import React, { useEffect } from 'react';
+import { Navigation } from './navigation';
+import { configureGoogleSignIn, checkCurrentUser } from './config/google-signin';
 
-export const App = () => {
-  return <View></View>;
-};
+import '../global.css';
 
-export default App;
+export default function App() {
+  useEffect(() => {
+    configureGoogleSignIn();
+    void checkCurrentUser();
+  }, []);
+
+  return <Navigation />;
+}

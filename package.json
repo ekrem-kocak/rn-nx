@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "my-app:start": "npx nx run my-app:start",
     "lint": "npx nx run-many --target=lint --all --verbose",
     "lint-fix": "npx nx run-many --target=lint --fix --all --verbose",
     "pre-commit": "npm run lint",
@@ -13,6 +12,7 @@
   "dependencies": {
     "@expo/metro-config": "~0.19.4",
     "@expo/metro-runtime": "~4.0.0",
+    "@react-native-google-signin/google-signin": "^13.1.0",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/drawer": "^7.1.1",
     "@react-navigation/native": "^7.0.14",
@@ -33,6 +33,7 @@
     "react-native-svg": "~15.8.0",
     "react-native-svg-transformer": "~1.5.0",
     "react-native-web": "~0.19.13",
+    "tailwind-merge": "^3.0.1",
     "tailwindcss": "^3.4.17",
     "zustand": "^5.0.3"
   },

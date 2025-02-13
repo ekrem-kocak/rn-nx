@@ -5,13 +5,35 @@
   "dependencies": {
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
+    "@react-native-google-signin/google-signin": "*",
+    "@react-navigation/bottom-tabs": "*",
+    "@react-navigation/drawer": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
+    "@supabase/supabase-js": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-screens": "*",
+    "react-native-gesture-handler": "*",
+    "react-native-reanimated": "*",
+    "nativewind": "*",
+    "tailwindcss": "*",
+    "tailwind-merge": "*",
+    "react-hook-form": "*",
+    "@expo/metro-config": "*",
+    "@expo/metro-runtime": "*",
+    "expo-splash-screen": "*",
+    "expo-status-bar": "*",
     "metro-config": "*",
     "react-native": "*",
     "expo": "*",
     "react-native-svg": "*",
-    "react-native-web": "*"
+    "react-native-web": "*",
+    "react": "18.3.1",
+    "zustand": "*"
   },
   "scripts": {
-    "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/my-app"
+    "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/my-app",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   }
 }
