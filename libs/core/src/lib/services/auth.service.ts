@@ -1,6 +1,6 @@
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { supabase } from '../config/supabase';
-import { useAuthStore } from '../stores/auth.store';
+import { useAuthStore } from '../store/auth.store';
 import { AuthError, User } from '@supabase/supabase-js';
 
 export class AuthService {

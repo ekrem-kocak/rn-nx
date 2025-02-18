@@ -47,6 +47,7 @@ export const checkCurrentUser = async () => {
     } catch (error) {
       // Google oturumu yoksa veya hata olduysa sessizce devam et
       console.log('Google session check failed:', error);
+      throw error;
     }
 
     return { user: null, error: null };

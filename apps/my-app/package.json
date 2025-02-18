@@ -6,6 +6,8 @@
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
     "@react-native-google-signin/google-signin": "*",
+    "@react-native-community/datetimepicker": "*",
+    "expo-image-picker": "*",
     "@react-navigation/bottom-tabs": "*",
     "@react-navigation/drawer": "*",
     "@react-navigation/native": "*",

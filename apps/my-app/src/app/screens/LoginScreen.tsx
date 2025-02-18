@@ -3,14 +3,14 @@ import { View, Text, SafeAreaView } from 'react-native';
 import { Button } from '@rn-nx/core';
 import { AuthService } from '@rn-nx/core';
 import { useNavigation } from '@react-navigation/native';
-
+import { Ionicons } from '@expo/vector-icons';
 export const LoginScreen = () => {
   const navigation = useNavigation();
 
   const handleGoogleLogin = async () => {
     const { error } = await AuthService.signInWithGoogle();
     if (!error) {
-      navigation.navigate('MainTabs' as never);
+      navigation.navigate('Main' as never);
     }
   };
 
@@ -19,9 +19,10 @@ export const LoginScreen = () => {
       <View className="flex-1 justify-center items-center p-4">
         <Text className="text-3xl font-bold mb-8 text-gray-800">Hoş Geldiniz</Text>
         <Button
+          icon={<Ionicons name="logo-google" size={24} color="white" />}
           title="Google ile Giriş Yap"
           onPress={handleGoogleLogin}
-          className="w-[80%] bg-blue-500 py-4 rounded-lg"
+          className="w-[80%] bg-blue-500 py-4"
         />
       </View>
     </SafeAreaView>

@@ -7,7 +7,7 @@ interface InputProps extends TextInputProps {
   error?: string;
 }
 
-export const Input: React.FC<InputProps> = ({ label, error, className, ...props }) => {
+export const Input: React.FC<InputProps> = ({ label, error, className = '', ...props }) => {
   return (
     <View className="mb-4">
       {label && <Text className="text-gray-700 mb-2 font-medium">{label}</Text>}
@@ -15,7 +15,6 @@ export const Input: React.FC<InputProps> = ({ label, error, className, ...props 
         className={twMerge(
           'px-4 py-3 border border-gray-300 rounded-lg bg-white',
           error && 'border-red-500',
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           className,
         )}
         {...props}
