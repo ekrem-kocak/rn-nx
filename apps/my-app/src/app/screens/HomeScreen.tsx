@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { useAuthStore } from '@rn-nx/core';
+import { AddIcon, ButtonIcon, useAuthStore } from '@rn-nx/core';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/types';
-
+import { Button, ButtonText } from '@rn-nx/core';
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export const HomeScreen = () => {
@@ -17,6 +17,10 @@ export const HomeScreen = () => {
       <Text className="text-lg">Hoş geldin, {user?.email}!</Text>
 
       {/* <Button title="Etkinlik Oluştur" onPress={() => navigation.navigate('CreateEvent')} className="mt-4" /> */}
+      <Button>
+        <ButtonText>Etkinlik Oluştur</ButtonText>
+        <ButtonIcon as={AddIcon as never} />
+      </Button>
     </View>
   );
 };
