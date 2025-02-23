@@ -4,7 +4,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeScreen } from '../screens/HomeScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
-import { CreateEventScreen } from '../screens/CreateEventScreen';
 import { RootStackParamList, MainTabParamList } from './types';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuthStore } from '@rn-nx/core';
@@ -45,14 +44,14 @@ export const Navigation = () => {
         {isAuthenticated ? (
           <>
             <Stack.Screen name="Main" component={MainTabs} options={{ headerShown: false }} />
-            <Stack.Screen
+            {/* <Stack.Screen
               name="CreateEvent"
               component={CreateEventScreen}
               options={{
                 headerShown: false,
                 presentation: 'modal',
               }}
-            />
+            /> */}
           </>
         ) : (
           <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />

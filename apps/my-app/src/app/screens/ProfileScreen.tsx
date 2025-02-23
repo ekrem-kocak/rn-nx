@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Button } from '@rn-nx/core';
 import { AuthService } from '@rn-nx/core';
 import { useAuthStore } from '@rn-nx/core';
 import { useNavigation } from '@react-navigation/native';
@@ -20,7 +19,7 @@ export const ProfileScreen = () => {
     <View className="flex-1 p-4 bg-white">
       <Text className="text-2xl font-bold mb-4">Profil</Text>
       <Text className="text-lg mb-2">Email: {user?.email}</Text>
-      <Button title="Çıkış Yap" variant="secondary" onPress={handleLogout} className="mt-8" />
+      {/* <Button title="Çıkış Yap" variant="secondary" onPress={handleLogout} className="mt-8" /> */}
     </View>
   );
 };
