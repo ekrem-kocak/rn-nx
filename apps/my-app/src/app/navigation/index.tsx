@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeScreen } from '../screens/HomeScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
 import { RootStackParamList, MainTabParamList } from './types';
 import { Ionicons } from '@expo/vector-icons';
-import { useAuthStore } from '@rn-nx/core';
+import { useAuthStore, useThemeStore } from '@rn-nx/core';
 import { LoginScreen } from '../screens/LoginScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -37,9 +37,10 @@ const MainTabs = () => {
 
 export const Navigation = () => {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const { theme } = useThemeStore();
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={theme === 'light' ? DefaultTheme : DarkTheme}>
       <Stack.Navigator>
         {isAuthenticated ? (
           <>
